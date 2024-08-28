@@ -64,6 +64,8 @@ func TestAddGetDelete(t *testing.T) {
 
 	err = store.Delete(parcel.Number)
 	require.NoError(t, err)
+	_, err = store.Get(parcel.Number)
+	require.Error(t, err, "посылка не удалена")
 }
 
 // TestSetAddress проверяет обновление адреса
